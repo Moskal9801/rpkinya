@@ -1,0 +1,215 @@
+.main-footer {
+  padding-top: 70px;
+  padding-bottom: 25px;
+  background-color: $brown;
+  @include tablet {
+    padding-top: 50px;
+    padding-bottom: 30px;
+  }
+  .main-footer__footer-body {
+    display: flex;
+    flex-direction: column;
+    .footer-body__contacts {
+      display: flex;
+      flex-direction: column;
+      @include tablet {
+        margin-top: 30px;
+      }
+      .contacts__item {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        @include tablet {
+          margin-top: 15px;
+        }
+        &:first-child {
+          margin-top: unset;
+        }
+        svg {
+          margin-right: 20px;
+          display: block;
+          width: 50px;
+          height: 50px;
+          @include tablet {
+            margin-right: 10px;
+            width: 40px;
+            height: 40px;
+          }
+        }
+        a {
+          color: $white;
+          transition: color $transition;
+          @include hover {
+            color: $mint;
+          }
+        }
+        p {
+          color: $white;
+        }
+      }
+    }
+    .footer-body__main-info {
+      position: relative;
+      display: grid;
+      grid-template-columns: 380px 380px;
+      justify-content: space-between;
+      @include tablet {
+        grid-template-columns: 1fr;
+        justify-content: unset;
+        gap: 100px;
+      }
+      .main-info__background {
+        position: absolute;
+        left: 430px;
+        top: 15px;
+        width: 300px;
+        height: 260px;
+        @include small-laptop {
+          left: 405px;
+          top: 30px;
+          width: 215px;
+          height: 190px;
+        }
+        @include tablet {
+          left: unset;
+          right: -15px;
+          top: 55px;
+          width: 170px;
+          height: 130px;
+        }
+        svg {
+          width: 100%;
+          height: 100%;
+          &.desktop {
+            @include tablet {
+              display: none;
+            }
+          }
+          &.mobile {
+            display: none;
+            @include tablet {
+              display: block;
+            }
+          }
+        }
+      }
+      .main-info__logo {
+        width: 380px;
+        height: 165px;
+        @include tablet {
+          margin-left: 15px;
+          width: 255px;
+          height: 110px;
+        }
+        svg {
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .main-info__controlling {
+        display: flex;
+        flex-direction: column;
+        .controlling__menu {
+          display: grid;
+          grid-template-columns: auto auto;
+          gap: 15px 45px;
+          @include tablet {
+            gap: 20px 45px;
+          }
+          .menu__item {
+            line-height: 110%;
+            color: $white;
+            transition: color $transition;
+            @include hover {
+              color: $mint;
+            }
+            &.active {
+              color: $mint;
+            }
+          }
+        }
+        .controlling__request {
+          margin-top: 30px;
+        }
+      }
+    }
+    .footer-body__more-info {
+      margin-top: 40px;
+      padding-top: 25px;
+      display: grid;
+      grid-template-columns: 380px 380px;
+      justify-content: space-between;
+      border-top: 2px solid $white;
+      @include tablet {
+        margin-top: 35px;
+        grid-template-columns: 1fr;
+        gap: 25px;
+      }
+      .more-info__lawyer {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        @include tablet {
+          flex-direction: column;
+          align-items: unset;
+        }
+        .lawyer__copyright {
+          font-size: 14px;
+          line-height: 150%;
+          color: $white;
+        }
+        .lawyer__privacy {
+          margin-left: 45px;
+          font-size: 14px;
+          line-height: 150%;
+          text-decoration: underline;
+          text-decoration-thickness: 1px;
+          text-underline-offset: 3px;
+          color: $white;
+          transition: color $transition;
+          @include tablet {
+            margin-top: 10px;
+            margin-left: unset;
+          }
+          @include hover {
+            color: $mint;
+          }
+        }
+      }
+      .more-info__studio {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        p {
+          font-size: 14px;
+          line-height: 150%;
+          color: $white;
+        }
+        a {
+          margin-left: 5px;
+          width: 155px;
+          height: 25px;
+          @include tablet {
+            width: 135px;
+            height: 20px;
+          }
+          @include hover {
+            svg {
+              path {
+                fill: $mint;
+              }
+            }
+          }
+          svg {
+            width: 100%;
+            height: 100%;
+            path {
+              transition: fill $transition;
+            }
+          }
+        }
+      }
+    }
+  }
+}

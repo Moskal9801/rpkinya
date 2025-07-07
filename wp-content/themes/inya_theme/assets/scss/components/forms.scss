@@ -1,0 +1,220 @@
+.wpcf7-form {
+  br {
+    display: none;
+  }
+  .wpcf7-spinner {
+    display: none;
+  }
+  .wpcf7-response-output {
+    display: none;
+  }
+  .wpcf7-not-valid-tip {
+    display: none;
+  }
+  .wpcf7-form__block {
+    .item {
+      margin-top: 15px;
+      display: grid;
+      grid-template-columns: 1fr;
+      &.large-margin {
+        margin-top: 25px;
+        @include tablet {
+          margin-top: 20px;
+        }
+        .title {
+          margin-bottom: 10px;
+        }
+      }
+      &.hidden {
+        display: none;
+      }
+      @include tablet {
+        margin-top: 10px;
+      }
+      .title {
+        margin-bottom: 10px;
+        font-size: 18px;
+        font-weight: 600;
+        @include tablet {
+          margin-bottom: 5px;
+          font-size: 14px;
+        }
+        span {
+          &.red {
+            color: $red;
+          }
+          &.gray {
+            color: #D2D2D2;
+          }
+        }
+      }
+      textarea {
+        height: 100px;
+        resize: none;
+        @include tablet {
+          height: 70px;
+        }
+      }
+      .input {
+        padding: 20px;
+        width: 100%;
+        font-size: 18px;
+        background-color: $background;
+        border: unset;
+        border-radius: 20px;
+        @include tablet {
+          padding: 15px 10px;
+          font-size: 16px;
+          border-radius: 10px;
+        }
+        &.wpcf7-not-valid {
+          color: $red;
+          &::placeholder {
+            color: $red;
+          }
+        }
+        &::placeholder {
+          color: #D2D2D2;
+        }
+      }
+      .custom-file {
+        p {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          .custom-file-upload {
+            cursor: pointer;
+          }
+          .custom-file-control {
+            margin-left: 10px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            .custom-file-info {
+              grid-template-columns: 19px 1fr;
+              align-items: center;
+              svg {
+                display: block;
+                width: 19px;
+                height: 20px;
+              }
+              p {
+                margin-left: 5px;
+                font-size: 18px;
+
+                display: block;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+                @include tablet {
+                  font-size: 14px;
+                }
+              }
+            }
+            .custom-file-remove {
+              margin-left: 10px;
+              svg {
+                display: block;
+                width: 20px;
+                height: 20px;
+                opacity: 1;
+                transition: opacity $transition;
+                @include hover {
+                  opacity: 0.5;
+                }
+              }
+            }
+          }
+        }
+      }
+      .wpcf7-form-control-wrap[data-name='vacancy-file'] {
+        display: none;
+      }
+    }
+    .items {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      @include tablet {
+        grid-template-columns: 1fr;
+        gap: unset;
+      }
+    }
+
+    .privacy__accept {
+      margin-top: 25px;
+      width: 100%;
+      border: unset;
+      outline: unset;
+      opacity: 1;
+      transition: opacity $transition;
+      cursor: pointer;
+      @include tablet {
+        margin-top: 30px;
+      }
+      &:disabled {
+        opacity: 0.5;
+        pointer-events: none;
+        cursor: none;
+      }
+    }
+    .wpcf7-acceptance {
+      .wpcf7-list-item {
+        margin: 20px 0 0 0;
+        @include tablet {
+          margin: 15px 0 0 0;
+        }
+        label {
+          display: grid;
+          grid-template-columns: 25px 1fr;
+          align-items: center;
+          gap: 10px;
+          @include tablet {
+            align-items: flex-start;
+          }
+          .privacy__checkbox {
+            margin: unset !important;
+            width: 25px;
+            height: 25px;
+            cursor: pointer;
+            background-color: $white;
+            border: 2px solid rgba(48, 55, 82, 0.1);
+            border-radius: unset;
+            &:checked:before {
+              content: '';
+              position: absolute;
+              top: -1px;
+              left: 3px;
+              width: 20px;
+              height: 20px;
+              background-image: url("/wp-content/themes/inya_theme/assets/images/form-check.svg");
+              background-repeat: no-repeat;
+              background-position: center;
+              background-size: contain;
+              @include tablet {
+                top: -5px;
+              }
+            }
+          }
+          .wpcf7-list-item-label {
+            font-size: 16px;
+            @include tablet {
+              display: flex;
+              flex-direction: column;
+              font-size: 13px;
+            }
+            a {
+              text-decoration: underline;
+              text-underline-offset: 5px;
+              color: $mint;
+              transition: color $transition;
+              @include hover {
+                color: $brown;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

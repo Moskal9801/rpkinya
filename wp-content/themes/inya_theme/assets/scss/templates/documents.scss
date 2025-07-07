@@ -1,0 +1,99 @@
+.documents-page {
+  .documents-page__documents {
+    padding-bottom: 150px;
+    @include tablet {
+      padding-bottom: 60px;
+    }
+    .documents__body {
+      display: flex;
+      flex-direction: column;
+      .body__items {
+        margin-top: 70px;
+        @include tablet {
+          margin-top: 25px;
+        }
+        .items__item {
+          padding: 30px 0;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-between;
+          border-bottom: 1px solid $mint;
+          @include tablet {
+            padding: 15px 0;
+          }
+          &:first-child {
+            border-top: 1px solid $mint;
+          }
+          .item__name {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            @include tablet {
+              display: grid;
+              grid-template-columns: 1fr 100px;
+              gap: 10px;
+            }
+            p {
+              word-break: break-word;
+            }
+            span {
+              margin-left: 10px;
+              font-size: 18px;
+              opacity: 0.4;
+              text-transform: uppercase;
+              @include tablet {
+                margin-left: 10px;
+                font-size: 14px;
+              }
+            }
+          }
+          .item__control {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            @include tablet {
+              margin-left: 30px;
+              flex-direction: column;
+            }
+            @include hover {
+              p {
+                color: $mint;
+              }
+              svg {
+                path {
+                  stroke: $mint;
+                }
+              }
+            }
+            p {
+              font-size: 18px;
+              color: $brown;
+              transition: color $transition;
+              @include tablet {
+                margin-top: 3px;
+                order: 2;
+              }
+            }
+            svg {
+              margin-left: 10px;
+              display: block;
+              width: 40px;
+              height: 40px;
+              @include tablet {
+                margin-left: unset;
+                width: 30px;
+                height: 30px;
+                order: 1;
+              }
+              path {
+                stroke: $brown;
+                transition: stroke $transition;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

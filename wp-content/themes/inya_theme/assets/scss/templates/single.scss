@@ -1,0 +1,388 @@
+.single-page {
+  .single-page__news-info {
+    padding-bottom: 120px;
+    @include tablet {
+      padding-bottom: 60px;
+    }
+    .news-info__body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      @include tablet {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+      .body__image {
+        position: sticky;
+        top: 220px;
+        width: 100%;
+        height: 475px;
+        border-radius: 20px;
+        overflow: hidden;
+        @include tablet {
+          position: unset;
+          top: unset;
+          height: 280px;
+          border-radius: 10px;
+        }
+      }
+      .body__info {
+        display: flex;
+        flex-direction: column;
+        .info__date {
+          font-size: 18px;
+          line-height: 120%;
+          opacity: 0.6;
+          @include tablet {
+            font-size: 16px;
+          }
+        }
+        .info__title {
+          margin-top: 10px;
+        }
+        .info__description {
+          margin-top: 25px;
+          @include tablet {
+            margin-top: 20px;
+          }
+        }
+      }
+    }
+  }
+  .single-page__news-all {
+    padding-bottom: 120px;
+    @include tablet {
+      padding-bottom: 60px;
+    }
+    .news-all__body {
+      display: flex;
+      flex-direction: column;
+      .body__title {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        .title__button {
+          max-width: 280px;
+          width: 100%;
+          @include tablet {
+            display: none;
+          }
+        }
+      }
+      .body__items {
+        margin: -20px -20px -20px -20px;
+        padding: 60px 20px 20px 20px;
+      }
+      .body__mobile-button {
+        display: none;
+        @include tablet {
+          margin-top: 30px;
+          display: flex;
+        }
+      }
+    }
+  }
+  .single-page__recipes-info {
+    position: relative;
+    padding-bottom: 120px;
+    @include tablet {
+      padding-bottom: 60px;
+    }
+    .recipes-info__body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      @include tablet {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+      .body__background {
+        position: absolute;
+        top: 0;
+        right: -55px;
+        @include tablet {
+          display: none;
+        }
+      }
+      .body__gallery {
+        position: sticky;
+        top: 220px;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 645px;
+        @include tablet {
+          position: unset;
+          top: unset;
+          width: unset;
+          height: unset;
+        }
+        .gallery__main {
+          border-radius: 20px;
+          .swiper-wrapper {
+            .swiper-slide {
+              margin: auto;
+              width: 100% !important;
+              height: 475px;
+
+              cursor:              pointer;
+              background-color:    $black;
+              background-position: center;
+              background-repeat:   no-repeat;
+              img {
+                opacity:       1;
+                transition:    opacity $transition;
+              }
+              @include hover {
+                img {
+                  opacity: 0.4;
+                }
+              }
+
+              &.image {
+                @include hover {
+                  background-image: url("/wp-content/themes/inya_theme/assets/images/loop.png");
+                }
+              }
+
+              &.video {
+                @include hover {
+                  background-image: url("/wp-content/themes/inya_theme/assets/images/video.png");
+                }
+              }
+
+              @include tablet {
+                height: 280px;
+                border-radius: 10px;
+              }
+            }
+          }
+        }
+        .gallery__more {
+          margin-top: 20px;
+          margin-left: unset;
+          @include tablet {
+            display: none;
+          }
+          .swiper-wrapper {
+            margin: unset;
+            max-width: 580px;
+            width: 100%;
+            .swiper-slide {
+              cursor: pointer;
+              width: 180px !important;
+              height: 150px !important;
+              border-radius: 20px;
+              overflow: hidden;
+              border: 2px solid transparent;
+              transition: border $transition;
+              @include hover {
+                border: 2px solid $mint;
+              }
+              &.swiper-slide-thumb-active {
+                border: 2px solid $mint;
+              }
+            }
+          }
+        }
+        .swiper-pagination {
+          bottom: 20px;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: center;
+          @include tablet {
+            bottom: 15px;
+          }
+          .swiper-pagination-bullet {
+            margin-left: 20px;
+            margin-right: unset;
+            display: flex;
+            width: 15px;
+            height: 15px;
+            background-color: $white;
+            opacity: 0.6;
+            transition: opacity $transition;
+            @include tablet {
+              margin-left: 10px;
+              width: 10px;
+              height: 10px;
+            }
+            &:first-child {
+              margin-left: unset;
+            }
+            &.swiper-pagination-bullet-active {
+              background-color: $white;
+              opacity: 1;
+            }
+          }
+        }
+      }
+      .body__info {
+        display: flex;
+        flex-direction: column;
+        .info__time {
+          margin-top: 25px;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          @include tablet {
+            margin-top: 15px;
+          }
+          .time__item {
+            margin-left: 10px;
+            padding: 10px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            border: 1px solid $brown;
+            border-radius: 20px;
+            &:first-child {
+              margin-left: unset;
+            }
+            svg {
+              margin-bottom: 2px;
+              display: block;
+              width: 15px;
+              height: 15px;
+              path {
+                stroke: $brown;
+              }
+            }
+            p {
+              margin-left: 5px;
+              font-size: 16px;
+              font-weight: 300;
+              color: $brown;
+              @include tablet {
+                font-size: 13px;
+              }
+            }
+          }
+        }
+        .info__description {
+          margin-top: 25px;
+          @include tablet {
+            margin-top: 15px;
+          }
+        }
+        .info__detail {
+          margin-top: 30px;
+          display: flex;
+          flex-direction: column;
+          .detail__title {
+            padding-bottom: 5px;
+            font-size: 24px;
+            color: $mint;
+            border-bottom: 1px solid $mint;
+            @include tablet {
+              font-size: 18px;
+            }
+          }
+          .detail__items {
+            display: flex;
+            flex-direction: column;
+            .items__item {
+              position: relative;
+              margin-top: 15px;
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              justify-content: space-between;
+              @include tablet {
+                margin-top: 10px;
+              }
+              &:before {
+                content: '';
+                position: absolute;
+                z-index: -1;
+                left: 0;
+                right: 0;
+                bottom: 7px;
+                border-bottom: 1px dashed #E3E3E3;
+              }
+              .item__name {
+                padding-right: 10px;
+                background-color: $white;
+              }
+              .item__value {
+                padding-left: 10px;
+                background-color: $white;
+              }
+            }
+          }
+        }
+        .info__step {
+          margin-top: 60px;
+          padding: 20px;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          background-color: $background;
+          border-radius: 20px;
+          @include tablet {
+            margin-top: 30px;
+            padding: 15px 10px;
+            border-radius: 10px;
+          }
+          h5 {
+            color: $mint;
+          }
+          .step__value {
+            margin-top: 30px;
+            height: 100%;
+            overflow: hidden;
+            transition: max-height $transition;
+            @include tablet {
+              margin-top: 25px;
+            }
+          }
+          .step__button {
+            margin-top: 30px;
+            @include tablet {
+              margin-top: 25px;
+              width: 100%;
+              justify-content: space-between;
+            }
+            &.active {
+              svg {
+                transform: rotate(180deg);
+              }
+            }
+            svg {
+              transform: rotate(0deg);
+              transition: transform $transition;
+            }
+          }
+        }
+        .info__recommended {
+          margin-top: 60px;
+          padding: 20px;
+          background-color: $background;
+          border-radius: 20px;
+          @include tablet {
+            margin-top: 30px;
+            padding: 15px 10px;
+            border-radius: 10px;
+          }
+          h5 {
+            color: $mint;
+          }
+          .recommended__items {
+            margin-top: 20px;
+            .items__item {
+              margin-top: 15px;
+              @include tablet {
+                margin-top: 10px;
+              }
+              &:first-child {
+                margin-top: unset;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

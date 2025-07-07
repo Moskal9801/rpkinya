@@ -1,0 +1,48 @@
+.error-page {
+  padding-top: 155px !important;
+  @include tablet {
+    padding-top: 82px !important;
+  }
+  .error-page__error {
+    width: 100%;
+    height: calc(100dvh - 155px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    @include tablet {
+      height: calc(100dvh - 82px);
+    }
+    .error__image {
+      width: 620px;
+      height: 270px;
+      @include tablet {
+        width: 295px;
+        height: 130px;
+      }
+      svg {
+        display: block;
+        width: inherit;
+        height: inherit;
+      }
+    }
+    .error__info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .info__message {
+        margin-top: 40px;
+        @include tablet {
+          margin-top: 30px;
+        }
+      }
+      .info__back {
+        margin-top: 40px;
+        width: 380px;
+        @include tablet {
+          width: 340px;
+        }
+      }
+    }
+  }
+}

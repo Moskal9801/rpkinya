@@ -1,0 +1,170 @@
+.products-page {
+  .products-page__title {
+    padding-bottom: 50px;
+    @include tablet {
+      padding-bottom: 25px;
+    }
+    .container {
+      .title__body {
+        display: flex;
+        flex-direction: column;
+        h2 {
+          @include tablet {
+            max-width: 255px;
+            width: 100%;
+          }
+        }
+        .body__category {
+          &.desktop {
+            margin-top: 25px;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 15px;
+            @include tablet {
+              display: none;
+            }
+            .category__item {
+              padding: 15px;
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              border: 1px solid $mint;
+              border-radius: 30px;
+              transition: background-color $transition;
+              @include hover {
+                background-color: $mint;
+                p {
+                  color: $white;
+                }
+              }
+              p {
+                transition: color $transition;
+              }
+
+              &.active {
+                background-color: $mint;
+                p {
+                  color: $white;
+                  margin-right: 10px;
+                }
+                a {
+                  opacity: 1;
+                  transition: opacity $transition;
+                  @include hover {
+                    opacity: 0.75;
+                  }
+                }
+              }
+            }
+          }
+          &.mobile {
+            position: relative;
+            margin-top: 20px;
+            display: none;
+            flex-direction: row;
+            align-items: center;
+            @include tablet {
+              display: flex;
+            }
+            .category__open-button {
+              padding: 7px 20px;
+              border: 1px solid $mint;
+              border-radius: 25px;
+              background-color: $white;
+              transition: background-color $transition;
+              svg {
+                width: 28px;
+                height: 28px;
+                path {
+                  transition: stroke;
+                }
+              }
+              &.open {
+                background-color: $mint;
+                svg {
+                  path {
+                    stroke: $white;
+                  }
+                }
+              }
+            }
+            .category__active-category {
+              margin-left: 10px;
+              padding: 11px 20px;
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              border: 1px solid $mint;
+              border-radius: 25px;
+              &.active {
+                background-color: $mint;
+                p {
+                  color: $white;
+                }
+              }
+              svg {
+                margin-left: 10px;
+              }
+            }
+            .category__all-categories {
+              position: absolute;
+              z-index: 1;
+              top: 60px;
+              left: 0;
+              padding: 20px 25px;
+              display: flex;
+              flex-direction: column;
+              border: 1px solid $mint;
+              border-radius: 25px;
+              background-color: $white;
+              opacity: 0;
+              transition: opacity $transition;
+              pointer-events: none;
+              a {
+                margin-top: 25px;
+                &.active {
+                  color: $mint;
+                }
+                &:first-child {
+                  margin-top: unset;
+                }
+              }
+              &.open {
+                opacity: 1;
+                pointer-events: unset;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .products-page__products {
+    padding-bottom: 120px;
+    @include tablet {
+      padding-bottom: 60px;
+    }
+    .container {
+      .products__body {
+        display: flex;
+        flex-direction: column;
+        .products {
+          margin-top: 20px;
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 20px;
+          @include tablet {
+            margin-top: 25px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+          }
+          .product-card {
+            width: unset;
+          }
+        }
+      }
+    }
+  }
+}

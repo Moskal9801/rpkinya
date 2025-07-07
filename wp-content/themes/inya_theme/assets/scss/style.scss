@@ -1,0 +1,655 @@
+$transition:     .2s ease-in-out;
+$transitionSlow: .6s ease-in-out;
+$animTransition: .8s ease-in-out;
+
+$norwesterG:     'NorwesterG', sans-serif;
+$venrynSans:     'VenrynSans', sans-serif;
+
+$background:     #F6F6F6;
+$black:          #2D2D2C;
+$brown:          #6E5D65;
+$mint:           #72BDBE;
+$red:            #FF4B4B;
+$white:          #FFFFFC;
+$gray:           #C0C0BE;
+$green:          #63CF6D;
+
+@import "default/reset";
+@import "default/fonts";
+@import "default/mixins";
+
+@import "libriary/swiper-bundle";
+@import "libriary/fancybox";
+@import "libriary/jquery.datetimepicker";
+
+@import "templates/home";
+@import "templates/products";
+@import "templates/product";
+@import "templates/cart";
+@import "templates/checkout";
+@import "templates/about";
+@import "templates/delivery";
+@import "templates/shops";
+@import "templates/documents";
+@import "templates/archive";
+@import "templates/single";
+@import "templates/error";
+@import "templates/default";
+
+@import "components/header";
+@import "components/footer";
+@import "components/hamburger";
+@import "components/popup";
+@import "components/forms";
+
+@import "parts/items-news";
+@import "parts/items-mainRecipes";
+@import "parts/items-moreRecipes";
+@import "parts/items-mainProduct";
+@import "parts/items-moreProduct";
+@import "parts/items-checkoutProduct";
+@import "parts/items-vacancy";
+
+html {
+  overflow-x:       hidden;
+  background-color: $white;
+  scroll-behavior:  smooth;
+  height:           100%;
+
+  &.no-scroll {
+    overflow: hidden;
+  }
+
+  @include desktop {
+    &.with-fancybox {
+      .main-header {
+        right: var(--fancybox-scrollbar-compensate);
+      }
+
+      .widget {
+        right: calc(50px + var(--fancybox-scrollbar-compensate));
+      }
+    }
+  }
+
+  body {
+    height: 100%;
+
+    &.background {
+      position: relative;
+
+      &:before {
+        content:          '';
+        position:         fixed;
+        top:              0;
+        bottom:           0;
+        left:             0;
+        right:            0;
+        background-color: $black;
+        opacity:          0.3;
+        z-index:          99;
+      }
+    }
+
+    .xdsoft_datetimepicker {
+      margin-top:    10px;
+      padding:       10px;
+      background:    #fff;
+      box-shadow:    0 0 30px 0 rgba(0, 49, 92, 0.08);
+      border:        unset;
+      border-radius: 10px;
+      color:         #333;
+
+      .xdsoft_datepicker {
+        margin: unset;
+
+        .xdsoft_today_button {
+          display: none;
+        }
+
+        .xdsoft_label.xdsoft_month {
+          text-align: unset;
+        }
+
+        .xdsoft_label.xdsoft_year {
+          width: 75px;
+        }
+
+        div, table, tr, th {
+          font-size:   14px;
+          font-weight: 500;
+        }
+      }
+
+      .xdsoft_timepicker {
+        .xdsoft_time_box {
+          height: 170px;
+
+          .xdsoft_time {
+            margin-top:       15px;
+            height:           25px;
+            font-size:        16px;
+            font-weight:      400 !important;
+            border:           unset;
+            color:            $black !important;
+            background-color: unset !important;
+            transition:       color $transition !important;
+
+            &:first-child {
+              margin-top: unset;
+            }
+
+            @include hover {
+              color:            $mint !important;
+              background-color: unset !important;
+            }
+          }
+        }
+      }
+    }
+
+    .notifyjs-corner {
+      left:   unset !important;
+      right:  50px !important;
+      top:    unset !important;
+      bottom: 50px !important;
+      margin: unset !important;
+      @include tablet {
+        right:  15px !important;
+        bottom: 15px !important;
+      }
+
+      .notifyjs-wrapper {
+        margin: unset;
+
+        .notifyjs-container {
+          margin: 10px 0 0 0;
+
+          .notifyjs-bootstrap-base {
+            padding:          15px;
+            background-color: $mint;
+            background-image: unset;
+            font-size:        16px;
+            font-weight:      400;
+            border:           unset;
+            border-radius:    10px;
+            text-shadow:      unset;
+            box-shadow:       0 0 30px 0 rgba(0, 49, 92, 0.08);
+
+            span {
+              color: $white;
+            }
+          }
+        }
+      }
+    }
+
+    .widget {
+      z-index:  5;
+      position: fixed;
+      right:    50px;
+      bottom:   50px;
+      @include tablet {
+        right:  15px;
+        bottom: 15px;
+      }
+
+      &.active {
+        .widget__item {
+          z-index: 5;
+
+          &.phone {
+            top: -85px;
+            @include tablet {
+              top: -55px;
+            }
+          }
+
+          &.whatsapp {
+            top: -170px;
+            @include tablet {
+              top: -110px;
+            }
+          }
+        }
+      }
+
+      .widget__item {
+        z-index:    -1;
+        position:   absolute;
+        top:        0;
+        right:      0;
+        opacity:    1;
+        transition: top $transition, opacity $transition;
+        @include hover {
+          opacity: 0.5;
+        }
+
+        svg {
+          display: block;
+          width:   75px;
+          height:  75px;
+          @include tablet {
+            width:  45px;
+            height: 45px;
+          }
+        }
+      }
+
+      .widget__main {
+        .main__background {
+          position:         absolute;
+          z-index:          1;
+          left:             50%;
+          top:              50%;
+          width:            75px;
+          height:           75px;
+          border-radius:    100%;
+          background-color: $green;
+          transform:        translate(-50%, -50%);
+          animation:        pulse 1.5s 1s infinite ease-in-out;
+
+          @include tablet {
+            width:  45px;
+            height: 45px;
+          }
+
+          @keyframes pulse {
+            0% {
+              transform: translate(-50%, -50%) scale(1);
+            }
+            25% {
+              opacity: 0.3;
+            }
+            100% {
+              transform: translate(-50%, -50%) scale(2);
+              opacity:   0;
+            }
+          }
+        }
+
+        .main__button {
+          position:         relative;
+          z-index:          2;
+          display:          flex;
+          justify-content:  center;
+          align-items:      center;
+          width:            75px;
+          height:           75px;
+          border-radius:    100%;
+          background-color: $green;
+          cursor:           pointer;
+          @include tablet {
+            width:  45px;
+            height: 45px;
+          }
+
+          svg {
+            display: block;
+            width:   22px;
+            height:  22px;
+          }
+        }
+      }
+    }
+
+    .disabled {
+      opacity:        0.5;
+      pointer-events: none;
+    }
+
+    .section-page {
+      min-height:     100%;
+      padding-top:    220px;
+      position:       relative;
+      display:        flex;
+      flex-direction: column;
+      @include tablet {
+        padding-top: 125px;
+      }
+
+      main {
+        flex: 1 1 auto;
+      }
+    }
+
+    * {
+      font-family:           $venrynSans;
+      font-size:             20px;
+      font-weight:           400;
+      line-height:           130%;
+      color:                 $black;
+      font-feature-settings: "lnum";
+      @include tablet {
+        font-size: 16px;
+      }
+    }
+
+    h1 {
+      font-family: $norwesterG;
+      font-size:   152px;
+      font-weight: 400;
+      line-height: 110%;
+      @include tablet {
+        font-size: 70px;
+      }
+    }
+
+    h2 {
+      font-family: $norwesterG;
+      font-size:   60px;
+      font-weight: 400;
+      line-height: 110%;
+      @include tablet {
+        font-size: 38px;
+      }
+    }
+
+    h3 {
+      font-family: $norwesterG;
+      font-size:   50px;
+      font-weight: 400;
+      line-height: 110%;
+      @include tablet {
+        font-size: 32px;
+      }
+    }
+
+    h4 {
+      font-family: $norwesterG;
+      font-size:   40px;
+      font-weight: 400;
+      line-height: 110%;
+      @include tablet {
+        font-size: 30px;
+      }
+    }
+
+    h5 {
+      font-family: $norwesterG;
+      font-size:   32px;
+      font-weight: 400;
+      line-height: 110%;
+      @include tablet {
+        font-size: 28px;
+      }
+    }
+
+    a {
+      font-family:     inherit;
+      font-size:       inherit;
+      font-weight:     inherit;
+      line-height:     inherit;
+      color:           inherit;
+      text-decoration: unset;
+    }
+
+    span {
+      font-family: inherit;
+      font-size:   inherit;
+      font-weight: inherit;
+      line-height: inherit;
+      color:       inherit;
+    }
+
+    img {
+      display:    block;
+      width:      100%;
+      height:     100%;
+      object-fit: cover;
+    }
+
+    svg {
+      display: block;
+    }
+
+    .container {
+      position:  relative;
+      max-width: 1215px;
+      width:     100%;
+      padding:   0 15px;
+      margin:    0 auto;
+      @include tablet {
+        max-width: 767px;
+      }
+    }
+
+    .small-container {
+      position:  relative;
+      max-width: 750px;
+      width:     100%;
+      padding:   0 15px;
+      margin:    0 auto;
+      @include tablet {
+        max-width: 767px;
+      }
+    }
+
+    .default-container {
+      position:  relative;
+      max-width: 840px;
+      width:     100%;
+      padding:   0 15px;
+      margin:    0 auto;
+      @include tablet {
+        max-width: 767px;
+      }
+    }
+
+    .default-button {
+      padding:         15px;
+      display:         flex;
+      align-items:     center;
+      justify-content: center;
+      font-size:       18px;
+      line-height:     110%;
+      border-radius:   20px;
+      transition:      color $transition, background-color $transition;
+      @include tablet {
+        font-size:     14px;
+        border-radius: 15px;
+      }
+
+      &.mint-white {
+        color:            $white;
+        background-color: $mint;
+        @include hover {
+          color:            $mint;
+          background-color: $white;
+        }
+      }
+
+      &.mint-brown {
+        color:            $white;
+        background-color: $mint;
+        @include hover {
+          background-color: $brown;
+        }
+      }
+
+      &.brown-mint {
+        color:            $white;
+        background-color: $brown;
+        @include hover {
+          background-color: $mint;
+        }
+      }
+    }
+
+    .border-button {
+      padding:         15px;
+      display:         flex;
+      flex-direction:  row;
+      align-items:     center;
+      justify-content: center;
+      gap:             10px;
+      border-radius:   20px;
+      transition:      border $transition, color $transition, background-color $transition;
+      @include tablet {
+        border-radius: 15px;
+      }
+
+      p {
+        font-size:   18px;
+        line-height: 110%;
+        transition:  color $transition;
+        @include tablet {
+          font-size: 14px;
+        }
+      }
+
+      svg {
+        path {
+          transition: stroke $transition;
+        }
+      }
+
+      &.black-mint {
+        border: 2px solid $black;
+        color:  $black;
+
+        p {
+          color: $black;
+        }
+
+        svg {
+          path {
+            stroke: $black;
+          }
+        }
+
+        @include hover {
+          border: 2px solid $mint;
+          color:  $mint;
+          p {
+            color: $mint;
+          }
+          svg {
+            path {
+              stroke: $mint;
+            }
+          }
+        }
+      }
+
+      &.brown-mint {
+        border: 2px solid $brown;
+        color:  $brown;
+
+        p {
+          color: $brown;
+        }
+
+        svg {
+          path {
+            stroke: $brown;
+          }
+        }
+
+        @include hover {
+          border: 2px solid $mint;
+          color:  $mint;
+          p {
+            color: $mint;
+          }
+          svg {
+            path {
+              stroke: $mint;
+            }
+          }
+        }
+      }
+
+      &.mint-brown {
+        border: 2px solid $mint;
+        color:  $mint;
+
+        p {
+          color: $mint;
+        }
+
+        svg {
+          path {
+            stroke: $mint;
+          }
+        }
+
+        @include hover {
+          border: 2px solid $brown;
+          color:  $brown;
+          p {
+            color: $brown;
+          }
+          svg {
+            path {
+              stroke: $brown;
+            }
+          }
+        }
+      }
+
+      &.white-brown {
+        border: 2px solid $white;
+        color:  $white;
+
+        p {
+          color: $white;
+        }
+
+        svg {
+          path {
+            stroke: $white;
+          }
+        }
+
+        @include hover {
+          border: 2px solid $brown;
+          color:  $brown;
+          p {
+            color: $brown;
+          }
+          svg {
+            path {
+              stroke: $brown;
+            }
+          }
+        }
+      }
+    }
+
+    .loader-inner {
+      width:         48px;
+      height:        48px;
+      border:        5px dotted $brown;
+      border-radius: 50%;
+      display:       inline-block;
+      position:      relative;
+      box-sizing:    border-box;
+      animation:     rotation 4s linear infinite;
+
+      @include tablet {
+        width:  37px;
+        height: 37px;
+      }
+
+      @keyframes rotation {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    }
+  }
+}
+
+.title-s {
+  font-size:   60px;
+  font-weight: 400;
+  line-height: 110%;
+
+  @include tablet {
+    font-size: 38px;
+  }
+}

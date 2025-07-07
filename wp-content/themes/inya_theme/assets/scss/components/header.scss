@@ -1,0 +1,414 @@
+.main-header {
+  position: fixed;
+  top: 30px;
+  left: 0;
+  right: 0;
+  z-index: 5;
+  margin: 0 auto;
+  max-width: 1480px;
+  width: 100%;
+  border: 1px solid rgba(131, 113, 121, 0.09);
+  border-radius: 30px;
+  background-color: $background;
+  transition: top .1s linear, border-radius .1s linear;
+  &.white-background {
+    background-color: $white;
+  }
+  &.scroll-background {
+    top: 0;
+    border-radius: 0 0 30px 30px;
+    transition: top .2s linear, border-radius .2s linear;
+  }
+  @media (max-width: 1510px) {
+    margin: 0 15px;
+    max-width: unset;
+    width: unset;
+  }
+  @include tablet {
+    top: 20px;
+    border-radius: 20px;
+  }
+  .main-header__header-body {
+    padding: 25px 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    @include tablet {
+      padding: 15px 0;
+    }
+    .header-body__logo {
+      display: block;
+      width: 205px;
+      height: 75px;
+      @include tablet {
+        width: 100px;
+        height: 40px;
+      }
+      svg {
+        width: 100%;
+        height: 100%;
+        .word {
+          transition: fill $transition;
+        }
+        @include hover {
+          .word {
+            fill: $mint;
+          }
+        }
+      }
+    }
+    .header-body__controlling {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      .controlling__phone {
+        font-size: 24px;
+        font-weight: 500;
+        line-height: 110%;
+        transition: color $transition;
+        @include tablet {
+          display: none;
+        }
+        @include hover {
+          color: $mint;
+        }
+      }
+      .controlling__catalog {
+        margin-left: 35px;
+        @include tablet {
+          display: none;
+        }
+      }
+      .controlling__cart {
+        position: relative;
+        margin-left: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        background-color: $brown;
+        border-radius: 100%;
+        transition: background-color $transition;
+        @include tablet {
+          margin-left: 15px;
+          width: 35px;
+          height: 35px;
+        }
+        @include hover {
+          background-color: $mint;
+        }
+        svg {
+          width: 25px;
+          height: 25px;
+          @include tablet {
+            width: 18px;
+            height: 18px;
+          }
+        }
+        span {
+          position: absolute;
+          top: -11px;
+          right: -11px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 28px;
+          height: 28px;
+          font-size: 14px;
+          line-height: 130%;
+          color: $white;
+          background-color: $red;
+          border-radius: 100%;
+          @include tablet {
+            width: 22px;
+            height: 22px;
+            font-size: 13px;
+            line-height: 100%;
+          }
+        }
+      }
+      .controlling__hamburger {
+        margin-left: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        background-color: $brown;
+        border-radius: 100%;
+        cursor: pointer;
+        transition: background-color $transition;
+        @include tablet {
+          margin-left: 15px;
+          width: 35px;
+          height: 35px;
+        }
+        @include hover {
+          background-color: $mint;
+        }
+      }
+    }
+  }
+}
+
+.main-background {
+  z-index: 29;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: $black;
+  opacity: 0;
+  transition: opacity $transitionSlow;
+  pointer-events: none;
+  &.open {
+    pointer-events: unset;
+    opacity: 0.5;
+  }
+}
+
+.main-menu {
+  z-index: 30;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: -950px;
+  padding: 50px 40px;
+  width: 950px;
+  background-color: $white;
+  transition: right $transitionSlow;
+  pointer-events: none;
+  @include tablet {
+    overflow-x: hidden;
+    overflow-y: auto;
+    right: -100%;
+    padding: 30px 15px;
+    width: 100%;
+  }
+  &.open {
+    pointer-events: unset;
+    right: 0;
+  }
+  .main-menu__menu-body {
+    display: flex;
+    flex-direction: column;
+    .menu-body__header {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      .header__logo {
+        display: block;
+        width: 205px;
+        height: 75px;
+        @include tablet {
+          width: 100px;
+          height: 40px;
+        }
+        svg {
+          width: 100%;
+          height: 100%;
+          .word {
+            transition: fill $transition;
+          }
+          @include hover {
+            .word {
+              fill: $mint;
+            }
+          }
+        }
+      }
+      .header__controlling {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        .controlling__phone {
+          font-size: 24px;
+          font-weight: 500;
+          line-height: 110%;
+          transition: color $transition;
+          @include tablet {
+            display: none;
+          }
+          @include hover {
+            color: $mint;
+          }
+        }
+        .controlling__catalog {
+          margin-left: 35px;
+          @include tablet {
+            display: none;
+          }
+        }
+        .controlling__cart {
+          position: relative;
+          margin-left: 20px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 50px;
+          height: 50px;
+          background-color: $brown;
+          border-radius: 100%;
+          transition: background-color $transition;
+          @include tablet {
+            margin-left: 15px;
+            width: 35px;
+            height: 35px;
+          }
+          @include hover {
+            background-color: $mint;
+          }
+          svg {
+            width: 25px;
+            height: 25px;
+            @include tablet {
+              width: 18px;
+              height: 18px;
+            }
+          }
+          span {
+            position: absolute;
+            top: -11px;
+            right: -11px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            font-size: 14px;
+            line-height: 130%;
+            color: $white;
+            background-color: $red;
+            border-radius: 100%;
+            @include tablet {
+              width: 22px;
+              height: 22px;
+              font-size: 13px;
+              line-height: 100%;
+            }
+          }
+        }
+        .controlling__hamburger {
+          margin-left: 20px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 50px;
+          height: 50px;
+          background-color: $brown;
+          border-radius: 100%;
+          cursor: pointer;
+          transition: background-color $transition;
+          @include tablet {
+            margin-left: 15px;
+            width: 35px;
+            height: 35px;
+          }
+          @include hover {
+            background-color: $mint;
+          }
+        }
+      }
+    }
+    .menu-body__menu {
+      position: relative;
+      margin-top: 150px;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: space-between;
+      @media (min-width: 1024px) and (max-height: 850px) {
+        margin-top: 65px;
+      }
+      @include tablet {
+        margin-top: 80px;
+        flex-direction: column;
+        align-items: unset;
+        justify-content: unset;
+      }
+      .menu__left {
+        display: flex;
+        flex-direction: column;
+        .left__item {
+          margin-top: 50px;
+          font-family: $norwesterG;
+          font-size: 50px;
+          font-weight: 400;
+          line-height: 110%;
+          transition: color $transition;
+          @include tablet {
+            margin-top: 25px;
+            font-size: 32px;
+          }
+          &:first-child {
+            margin-top: unset;
+          }
+          @include hover {
+            color: $mint;
+          }
+          &.active {
+            color: $mint;
+          }
+        }
+      }
+      .menu__right {
+        margin-left: 150px;
+        display: flex;
+        flex-direction: column;
+        @include tablet {
+          margin-top: 30px;
+          margin-left: unset;
+        }
+        .right__request {
+
+        }
+        .right__menu-more {
+          margin-top: 70px;
+          display: flex;
+          flex-direction: column;
+          @include tablet {
+            margin-top: 30px;
+          }
+          .menu-more__item {
+            margin-top: 30px;
+            font-size: 30px;
+            line-height: 110%;
+            transition: color $transition;
+            @include tablet {
+              margin-top: 20px;
+              font-size: 16px;
+            }
+            &:first-child {
+              margin-top: unset;
+            }
+            @include hover {
+              color: $mint;
+            }
+            &.active {
+              color: $mint;
+            }
+          }
+        }
+      }
+      .menu__background {
+        z-index: -1;
+        position: absolute;
+        top: 240px;
+        left: 150px;
+        @include tablet {
+          top: 380px;
+          left: 75px;
+          svg {
+            display: block;
+            width: 280px;
+            height: 235px;
+          }
+        }
+      }
+    }
+  }
+}

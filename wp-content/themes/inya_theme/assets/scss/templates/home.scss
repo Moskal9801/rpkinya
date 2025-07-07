@@ -1,0 +1,581 @@
+.home-page {
+  &.section-page {
+    padding-top: unset;
+  }
+  .home-page__banner {
+    padding-top: 245px;
+    padding-bottom: 100px;
+    background-color: $background;
+    @include tablet {
+      padding-top: 150px;
+      padding-bottom: 45px;
+    }
+    .banner__body {
+      display: flex;
+      flex-direction: column;
+      .body__title {
+        position: relative;
+        .title__tag {
+          display: flex;
+          justify-content: center;
+          @include between {
+            justify-content: unset;
+          }
+          .tag__item {
+            padding: 15px;
+            position: absolute;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            background-color: $mint;
+            border-radius: 25px;
+            @include tablet {
+              padding: 10px;
+              border-radius: 20px;
+            }
+            svg {
+              width: 16px;
+              height: 13px;
+              @include tablet {
+                width: 15px;
+                height: 12px;
+              }
+            }
+            p {
+              margin-left: 10px;
+              line-height: 110%;
+              color: $white;
+              @include tablet {
+                font-size: 14px;
+              }
+            }
+            &.left {
+              left: 25px;
+              top: -37px;
+              transform: rotate(-7deg);
+              @include between {
+                left: 400px;
+                top: 100px;
+              }
+              @include tablet {
+                left: 185px;
+                top: 40px;
+              }
+            }
+            &.middle {
+              margin-right: 30px;
+              bottom: -35px;
+              transform: rotate(8deg);
+              @include between {
+                margin-right: unset;
+                left: 180px;
+              }
+              @include tablet {
+                left: 80px;
+                bottom: -28px;
+                transform: rotate(7deg);
+              }
+            }
+            &.right {
+              right: 75px;
+              top: -30px;
+              transform: rotate(5deg);
+              @include between {
+                left: 100px;
+                right: unset;
+              }
+              @include tablet {
+                left: 10px;
+                top: -28px;
+                transform: rotate(8deg);
+              }
+            }
+          }
+        }
+        h1 {
+          text-transform: uppercase;
+          br {
+            display: none;
+            @include between {
+              display: block;
+            }
+          }
+        }
+      }
+      .body__cards {
+        margin-top: 80px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 20px;
+        @include tablet {
+          margin-top: 60px;
+          margin-left: -15px;
+          margin-right: -15px;
+          padding-left: 15px;
+          padding-right: 15px;
+          padding-bottom: 15px;
+          grid-template-columns: 290px 290px 290px;
+          gap: 10px;
+          overflow-x: auto;
+        }
+        .cards__item {
+          position: relative;
+          width: 100%;
+          height: 425px;
+          overflow: hidden;
+          @include tablet {
+            height: 340px;
+            border-top-left-radius: 25px;
+            border-top-right-radius: 25px;
+          }
+          @include hover {
+            .item__info {
+              bottom: 0;
+            }
+          }
+          &:first-child {
+            border-top-left-radius: 25px;
+            border-bottom-left-radius: 25px;
+            @include tablet {
+              border-top-right-radius: 25px;
+              border-bottom-left-radius: unset;
+            }
+          }
+          &:last-child {
+            border-top-right-radius: 25px;
+            border-bottom-right-radius: 25px;
+            @include tablet {
+              border-top-left-radius: 25px;
+              border-bottom-right-radius: unset;
+            }
+          }
+          .item__image {
+            width: 100%;
+            height: 100%;
+          }
+          .item__info {
+            padding: 20px 15px;
+            position: absolute;
+            left: 10px;
+            right: 10px;
+            bottom: -500px;
+            display: flex;
+            flex-direction: column;
+            background-color: $mint;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            transition: bottom $transitionSlow;
+            @include tablet {
+              padding: 15px;
+              bottom: 0;
+            }
+            .info__description {
+              font-size: 24px;
+              line-height: 100%;
+              color: $white;
+              br {
+                @include tablet {
+                  display: none;
+                }
+              }
+              @include tablet {
+                font-size: 16px;
+              }
+            }
+            .info__button {
+              margin-top: 15px;
+              margin-right: auto;
+              @include tablet {
+                margin-top: 25px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .home-page__about {
+    padding-top: 120px;
+    padding-bottom: 120px;
+    @include tablet {
+      padding-top: 60px;
+      padding-bottom: 60px;
+    }
+    .about__body {
+      padding-bottom: 60px;
+      display: grid;
+      grid-template-columns: 680px 280px;
+      justify-content: space-between;
+      border-bottom: 2px solid $brown;
+      @include tablet {
+        padding-bottom: 30px;
+        grid-template-columns: 1fr;
+        justify-content: unset;
+      }
+      .body__title {
+        position: relative;
+        h2 {
+          span {
+            color: $mint;
+          }
+        }
+        .title__onion {
+          position: absolute;
+          top: 0;
+          left: 500px;
+          @include tablet {
+            display: none;
+          }
+          svg {
+            width: 65px;
+            height: 65px;
+          }
+        }
+        .title__branch {
+          position: absolute;
+          top: 40px;
+          right: -180px;
+          @include between {
+            right: -130px;
+          }
+          @include tablet {
+            top: 70px;
+            right: -15px;
+          }
+          .desktop {
+            display: block;
+            @include tablet {
+              display: none;
+            }
+          }
+          .mobile {
+            display: none;
+            @include tablet {
+              display: block;
+            }
+          }
+        }
+      }
+      .body__more {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        @include tablet {
+          margin-top: 15px;
+        }
+        .more__description {
+          .desktop {
+            display: block;
+            @include tablet {
+              display: none;
+            }
+          }
+          .mobile {
+            display: none;
+            @include tablet {
+              display: block;
+            }
+          }
+        }
+        .more__button {
+          margin-top: 30px;
+        }
+      }
+    }
+  }
+  .home-page__popular {
+    position: relative;
+    padding-bottom: 60px;
+    .popular__background {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: $background;
+      @include tablet {
+        display: none;
+      }
+    }
+    .popular__body {
+      display: flex;
+      flex-direction: column;
+      .body__title {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        .title__button {
+          max-width: 280px;
+          width: 100%;
+          @include tablet {
+            display: none;
+          }
+        }
+      }
+      .body__popular {
+        margin-top: 40px;
+        padding-bottom: 70px;
+        display: flex;
+        flex-direction: column;
+        border-bottom: 2px solid $brown;
+        @include tablet {
+          padding-bottom: 30px;
+        }
+        .popular__items {
+          margin: -20px 0 -20px -20px;
+          padding: 20px 0 20px 20px;
+          @include tablet {
+            margin: -15px -15px -15px -15px;
+            padding: 15px 15px 15px 15px;
+          }
+          .product-card {
+            border: 1px solid rgba(131, 113, 121, .20);
+            box-shadow: unset;
+          }
+        }
+        .popular__more {
+          margin-top: 40px;
+          display: flex;
+          flex-direction: row;
+          align-items: flex-start;
+          justify-content: space-between;
+          @include tablet {
+            margin-top: 30px;
+            flex-direction: column;
+            align-items: unset;
+            justify-content: unset;
+          }
+          .more__button {
+            display: none;
+            @include tablet {
+              display: flex;
+            }
+          }
+          .more__description {
+            max-width: 715px;
+            width: 100%;
+            @include tablet {
+              margin-top: 25px;
+            }
+          }
+          .more__navigation {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            @include tablet {
+              display: none;
+            }
+            .navigation-popular {
+              width: 40px;
+              height: 40px;
+              cursor: pointer;
+              opacity: 1;
+              transition: opacity $transition;
+              &.navigation__next {
+                margin-left: 25px;
+              }
+              &.swiper-button-disabled {
+                opacity: 0.5;
+                pointer-events: none;
+              }
+              circle {
+                fill: rgba(0,0,0,0);
+                transition: fill $transition;
+              }
+              path {
+                transition: stroke $transition;
+              }
+              @include hover {
+                circle {
+                  fill: $brown;
+                }
+                path {
+                  stroke: $white;
+                }
+              }
+            }
+          }
+        }
+      }
+      .body__slogan {
+        margin-top: 70px;
+        @include tablet {
+          margin-top: 30px;
+        }
+        h2 {
+          position: relative;
+          z-index: 1;
+          @include tablet {
+            max-width: 295px;
+            width: 100%;
+          }
+          br {
+            display: block;
+            @include tablet {
+              display: none;
+            }
+          }
+          span {
+            color: $mint;
+          }
+        }
+        svg {
+          position: absolute;
+          &.desktop {
+            right: 0;
+            bottom: 0;
+            width: 295px;
+            height: 125px;
+            @include tablet {
+              display: none;
+            }
+          }
+          &.mobile {
+            right: 0;
+            bottom: 45px;
+            display: none;
+            width: 125px;
+            height: 80px;
+            @include tablet {
+              display: block;
+            }
+          }
+        }
+      }
+    }
+  }
+  .home-page__news {
+    padding-top: 120px;
+    padding-bottom: 120px;
+    @include tablet {
+      padding-top: 60px;
+      padding-bottom: 60px;
+    }
+    .news__body {
+      display: flex;
+      flex-direction: column;
+      .body__title {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        .title__button {
+          max-width: 280px;
+          width: 100%;
+          @include tablet {
+            display: none;
+          }
+        }
+      }
+      .body__news {
+        margin-top: 50px;
+        display: flex;
+        flex-direction: column;
+        @include tablet {
+          margin-top: 25px;
+        }
+        .news__items {
+          margin: -20px 0 -20px -20px;
+          padding: 20px 0 20px 20px;
+          @include tablet {
+            margin: -15px -15px -15px -15px;
+            padding: 15px 15px 15px 15px;
+          }
+          .news-card {
+            border: 1px solid rgba(131, 113, 121, .20);
+            box-shadow: unset;
+          }
+        }
+        .news__more {
+          margin-top: 40px;
+          display: flex;
+          flex-direction: row;
+          align-items: flex-start;
+          justify-content: space-between;
+          @include tablet {
+            margin-top: 30px;
+            flex-direction: column;
+            align-items: unset;
+            justify-content: unset;
+          }
+          .more__button {
+            display: none;
+            @include tablet {
+              display: flex;
+            }
+          }
+          .more__description {
+            max-width: 470px;
+            width: 100%;
+            @include tablet {
+              margin-top: 25px;
+            }
+          }
+          .more__navigation {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            @include tablet {
+              display: none;
+            }
+            .navigation-news {
+              width: 40px;
+              height: 40px;
+              cursor: pointer;
+              opacity: 1;
+              transition: opacity $transition;
+              &.navigation__next {
+                margin-left: 25px;
+              }
+              &.swiper-button-disabled {
+                opacity: 0.5;
+                pointer-events: none;
+              }
+              circle {
+                fill: rgba(0, 0, 0, 0);
+                transition: fill $transition;
+              }
+              path {
+                transition: stroke $transition;
+              }
+              @include hover {
+                circle {
+                  fill: $brown;
+                }
+                path {
+                  stroke: $white;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .home-page__maps {
+    overflow-x: hidden;
+    padding-bottom: 120px;
+    @include tablet {
+      padding-bottom: 60px;
+    }
+    .maps__body {
+      display: flex;
+      flex-direction: column;
+      .body__maps {
+        margin-top: 40px;
+        @include tablet {
+          margin-top: 25px;
+        }
+      }
+      .body__background {
+        position: absolute;
+        right: -100px;
+        bottom: -85px;
+        @include tablet {
+          display: none;
+        }
+      }
+    }
+  }
+}

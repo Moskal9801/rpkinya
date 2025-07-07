@@ -1,0 +1,468 @@
+.delivery-page {
+	.delivery-page__order {
+		padding-bottom: 60px;
+		@include tablet {
+			padding-bottom: 30px;
+		}
+
+		.order__body {
+			display:        flex;
+			flex-direction: column;
+
+			.body__mission {
+				margin-top:   40px;
+				margin-left:  auto;
+				padding-left: 20px;
+				max-width:    580px;
+				width:        100%;
+				border-left:  2px solid $mint;
+				@include tablet {
+					margin-top:   20px;
+					margin-left:  unset;
+					padding-left: 10px;
+					max-width:    767px;
+				}
+			}
+
+			.body__ordering {
+				position:              relative;
+				margin-top:            60px;
+				display:               grid;
+				grid-template-columns: 1fr 1fr;
+				gap:                   20px;
+				@include tablet {
+					margin-top:            30px;
+					grid-template-columns: 1fr;
+					gap:                   30px;
+				}
+
+				.ordering__info {
+					display:        flex;
+					flex-direction: column;
+					@include tablet {
+						order: 2;
+					}
+
+					.info__title {
+						margin-bottom: 25px;
+						font-size:     40px;
+						font-weight:   500;
+						@include tablet {
+							margin-bottom: 20px;
+							font-size:     28px;
+						}
+					}
+
+					.info__items {
+						display:        flex;
+						flex-direction: column;
+
+						.items__item {
+							position:    relative;
+							margin-top:  20px;
+							margin-left: 18px;
+							@include tablet {
+								margin-top: 10px;
+							}
+
+							&:first-child {
+								margin-top: unset;
+							}
+
+							&:before {
+								content:          '';
+								position:         absolute;
+								top:              8px;
+								left:             -18px;
+								display:          flex;
+								width:            8px;
+								height:           8px;
+								background-color: $mint;
+								border-radius:    100%;
+								@include tablet {
+									top: 5px;
+								}
+							}
+
+							span {
+								color: $mint;
+							}
+						}
+					}
+				}
+
+				.ordering__image {
+					position:      sticky;
+					top:           220px;
+					width:         100%;
+					height:        400px;
+					border-radius: 20px;
+					overflow:      hidden;
+					@include tablet {
+						order:         1;
+						position:      unset;
+						top:           unset;
+						height:        240px;
+						border-radius: 10px;
+					}
+				}
+			}
+		}
+	}
+
+	.delivery-page__delivery {
+		padding-bottom: 60px;
+		@include tablet {
+			padding-bottom: 30px;
+		}
+
+		.delivery__body {
+			display:               grid;
+			grid-template-columns: 1fr 1fr;
+			gap:                   20px;
+			@include tablet {
+				grid-template-columns: 1fr;
+				gap:                   25px;
+			}
+
+			.pickup__map {
+
+				grid-column-start: 1;
+				grid-column-end:   3;
+
+				&-ifream {
+					width:         100%;
+					height:        700px;
+					border-radius: 20px;
+					overflow:      hidden;
+				}
+			}
+
+			.body__courier {
+				padding:          30px 20px;
+				display:          flex;
+				flex-direction:   column;
+				background-color: $background;
+				border-radius:    20px;
+				@include tablet {
+					padding:       20px 10px;
+					border-radius: 10px;
+				}
+
+				.courier__title {
+					font-size:   40px;
+					font-weight: 500;
+					@include tablet {
+						font-size: 28px;
+					}
+				}
+
+				.courier__item {
+					margin-top:            25px;
+					display:               grid;
+					grid-template-columns: 50px 1fr;
+					gap:                   20px;
+					align-items:           center;
+					@include tablet {
+						margin-top:            15px;
+						grid-template-columns: 40px 1fr;
+						gap:                   10px;
+					}
+
+					&:first-child {
+						margin-top: unset;
+					}
+
+					svg {
+						margin-bottom: auto;
+						display:       block;
+						width:         100%;
+						height:        50px;
+						@include tablet {
+							height: 40px;
+						}
+					}
+				}
+
+				.courier__phone {
+					margin-top:  10px;
+					margin-left: 70px;
+					@include tablet {
+						margin-left: 50px;
+					}
+
+					br {
+						display: none;
+						@include tablet {
+							display: block;
+						}
+					}
+
+					a {
+						color:      $mint;
+						transition: color $transition;
+						@include hover {
+							color: $brown;
+						}
+					}
+				}
+
+				.courier__price {
+					margin-top:       30px;
+					padding:          20px;
+					display:          flex;
+					flex-direction:   column;
+					background-color: $white;
+					border-radius:    20px;
+
+					.price__title {
+						font-size:   28px;
+						font-weight: 500;
+					}
+
+					.price__item {
+						margin-top: 15px;
+						@include tablet {
+							br {
+								display: none;
+							}
+						}
+
+						span {
+							color: $mint;
+						}
+
+						&:not(&:last-child)::after {
+							content:  '';
+							position: relative;
+							float: right;
+							width:    14px;
+							height:   14px;
+							border-radius: 5px;
+						}
+
+						&:nth-child(2)::after {
+							background-color: #97E486;
+						}
+
+						&:nth-child(3)::after {
+							background-color: #FBE072;
+						}
+
+						&:nth-child(4)::after {
+							background-color: #F08B88;
+						}
+					}
+				}
+			}
+
+			.body__pickup {
+				padding:          30px 20px;
+				display:          flex;
+				flex-direction:   column;
+				background-color: $background;
+				border-radius:    20px;
+				@include tablet {
+					padding:       20px 10px;
+					border-radius: 10px;
+				}
+
+				.pickup__title {
+					font-size:   40px;
+					font-weight: 500;
+					@include tablet {
+						font-size: 28px;
+					}
+				}
+
+				.pickup__item {
+					margin-top:            25px;
+					display:               grid;
+					grid-template-columns: 50px 1fr;
+					gap:                   20px;
+					align-items:           center;
+					@include tablet {
+						margin-top:            15px;
+						grid-template-columns: 40px 1fr;
+						gap:                   10px;
+					}
+
+					&:first-child {
+						margin-top: unset;
+					}
+
+					svg {
+						margin-bottom: auto;
+						display:       block;
+						width:         100%;
+						height:        50px;
+						@include tablet {
+							height: 40px;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.delivery-page__payments {
+		padding-bottom: 120px;
+		@include tablet {
+			padding-bottom: 60px;
+		}
+
+		.payments__body {
+			display:        flex;
+			flex-direction: column;
+
+			.body__title {
+				font-size:   40px;
+				font-weight: 500;
+				@include tablet {
+					font-size: 28px;
+				}
+			}
+
+			.body__info {
+				position:              relative;
+				margin-top:            40px;
+				display:               grid;
+				grid-template-columns: 1fr 1fr;
+				align-items:           start;
+				gap:                   20px;
+				@include tablet {
+					margin-top:            25px;
+					grid-template-columns: 1fr;
+					gap:                   30px;
+				}
+
+				.info__more {
+					position:              sticky;
+					top:                   220px;
+					display:               grid;
+					grid-template-columns: 1fr 1fr;
+					gap:                   20px;
+					@include tablet {
+						position: unset;
+						top:      unset;
+						gap:      10px;
+					}
+
+					.more__item {
+						padding:          20px;
+						display:          flex;
+						flex-direction:   column;
+						background-color: $background;
+						border-radius:    10px;
+						@include tablet {
+							padding: 15px 10px;
+						}
+
+						&:last-child {
+							grid-column: span 2;
+
+							p {
+								margin-top: 60px;
+								@include tablet {
+									margin-top: 45px;
+								}
+							}
+						}
+
+						svg {
+							display: block;
+							width:   50px;
+							height:  50px;
+							@include tablet {
+								width:  40px;
+								height: 40px;
+							}
+						}
+
+						p {
+							margin-top: 40px;
+							font-size:  18px;
+							@include tablet {
+								margin-top: 30px;
+								font-size:  14px;
+							}
+						}
+					}
+				}
+
+				.info__main {
+					display:        flex;
+					flex-direction: column;
+
+					.main__items {
+						margin-top:     30px;
+						display:        flex;
+						flex-direction: column;
+						@include tablet {
+							margin-top: 25px;
+						}
+
+						&:first-child {
+							margin-top: unset;
+						}
+
+						.items__title {
+							font-size:   30px;
+							font-weight: 500;
+							@include tablet {
+								font-size: 28px;
+							}
+						}
+
+						.items__items {
+							margin-top:     25px;
+							display:        flex;
+							flex-direction: column;
+							@include tablet {
+								margin-top: 20px;
+							}
+
+							.items__item {
+								position:    relative;
+								margin-top:  15px;
+								margin-left: 18px;
+								@include tablet {
+									margin-top: 10px;
+									text-wrap:  balance;
+								}
+
+								&:first-child {
+									margin-top: unset;
+								}
+
+								&:before {
+									content:          '';
+									position:         absolute;
+									top:              8px;
+									left:             -18px;
+									display:          flex;
+									width:            8px;
+									height:           8px;
+									background-color: $mint;
+									border-radius:    100%;
+									@include tablet {
+										top: 5px;
+									}
+								}
+
+								a {
+									color:       $mint;
+									transition:  color $transition;
+									white-space: nowrap;
+									@include hover {
+										color: $brown;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

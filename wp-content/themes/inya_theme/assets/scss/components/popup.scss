@@ -1,0 +1,248 @@
+.fancybox__slide {
+  @include tablet {
+    padding: 0 15px;
+  }
+}
+
+.popup {
+  position: relative;
+  margin: 15px auto;
+  padding: 45px 40px 40px 40px;
+  max-width: 830px;
+  width: 100%;
+  background-color: $white;
+  border-radius: 20px;
+  @include tablet {
+    margin: 5px 15px;
+    padding: 15px;
+    max-width: unset;
+  }
+  .popup__close {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    @include tablet {
+      top: 20px;
+      right: 20px;
+      width: 15px;
+      height: 15px;
+    }
+    @include hover {
+      path {
+        stroke: $mint;
+      }
+    }
+    path {
+      stroke: $brown;
+      transition: fill $transition;
+    }
+  }
+  .f-button.is-close-btn {
+    display: none;
+  }
+
+  &.popup-request {
+    display: flex;
+    flex-direction: column;
+    @include tablet {
+      padding: 40px 15px 20px 15px;
+    }
+    .popup-request__info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .info__name {
+        font-size: 50px;
+        font-weight: 500;
+        @include tablet {
+          font-size: 28px;
+        }
+      }
+      .info__description {
+        margin-top: 15px;
+        max-width: 375px;
+        width: 100%;
+        text-align: center;
+        @include tablet {
+          margin-top: 5px;
+          max-width: 300px;
+        }
+      }
+    }
+    .popup-request__forms {
+      margin-top: 40px;
+      @include tablet {
+        margin-top: 30px;
+      }
+    }
+  }
+
+  &.popup-vacancy {
+    display: flex;
+    flex-direction: column;
+    .popup-vacancy__info {
+      display: flex;
+      flex-direction: column;
+      .info__name {
+        font-size: 40px;
+        font-weight: 500;
+        @include tablet {
+          max-width: 290px;
+          width: 100%;
+          font-size: 28px;
+        }
+      }
+      .info__salary {
+        margin-top: 5px;
+        font-size: 28px;
+        font-weight: 500;
+        @include tablet {
+          font-size: 20px;
+        }
+      }
+      .info__detail {
+        margin-top: 25px;
+        display: flex;
+        flex-direction: column;
+        @include tablet {
+          margin-top: 20px;
+        }
+        .detail__title {
+          padding-bottom: 5px;
+          font-size: 24px;
+          color: $mint;
+          border-bottom: 1px solid $mint;
+          @include tablet {
+            font-size: 18px;
+          }
+        }
+        .detail__items {
+          margin-top: 20px;
+          display: flex;
+          flex-direction: column;
+          @include tablet {
+            margin-top: 15px;
+          }
+          p {
+            margin-top: 10px;
+          }
+          ul {
+            margin-left: 23px;
+            list-style: disc;
+            li {
+              margin-top: 10px;
+              &::marker {
+                color: $mint;
+              }
+            }
+          }
+          ol {
+            margin-left: 23px;
+            list-style: disc;
+            li {
+              margin-top: 10px;
+              &::marker {
+                color: $mint;
+              }
+            }
+          }
+        }
+      }
+      .info__more {
+        margin-top: 40px;
+        font-size: 28px;
+        font-weight: 500;
+        @include tablet {
+          margin-top: 30px;
+          font-size: 20px;
+        }
+      }
+    }
+    .popup-vacancy__forms {
+      margin-top: 10px;
+    }
+  }
+
+  &.popup-answer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .popup-answer__icon {
+      display: block;
+      width: 115px;
+      height: 115px;
+      @include tablet {
+        width: 80px;
+        height: 80px;
+      }
+    }
+    .popup-answer__answer {
+      margin-top: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      @include tablet {
+        margin-top: 20px;
+      }
+      .answer__title {
+        font-size: 50px;
+        font-weight: 500;
+        @include tablet {
+          font-size: 28px;
+        }
+      }
+      .answer__description {
+        margin-top: 15px;
+        max-width: 400px;
+        width: 100%;
+        font-size: 20px;
+        text-align: center;
+        @include tablet {
+          margin-top: 5px;
+          max-width: 250px;
+          font-size: 16px;
+        }
+      }
+      .answer__phone {
+        margin-top: 15px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        @include hover {
+          svg {
+            path {
+              fill: $mint;
+            }
+          }
+          p {
+            color: $mint;
+          }
+        }
+        svg {
+          display: block;
+          width: 23px;
+          height: 23px;
+          @include tablet {
+            width: 20px;
+            height: 20px;
+          }
+          path {
+            transition: fill $transition;
+          }
+        }
+        p {
+          margin-left: 15px;
+          font-size: 24px;
+          transition: color $transition;
+          @include tablet {
+            margin-left: 10px;
+            font-size: 18px;
+          }
+        }
+      }
+    }
+  }
+}

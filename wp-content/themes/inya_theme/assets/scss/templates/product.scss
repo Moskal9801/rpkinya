@@ -1,0 +1,461 @@
+.product-page {
+  .product-page__product {
+    padding-bottom: 120px;
+    @include tablet {
+      padding-bottom: 60px;
+    }
+    .container {
+      .product__body {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        @include tablet {
+          display: flex;
+          flex-direction: column;
+          grid-template-columns: unset;
+          gap: unset;
+        }
+        .body__gallery {
+          position: sticky;
+          top: 220px;
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+          height: 645px;
+          @include tablet {
+            position: unset;
+            top: unset;
+            width: unset;
+            height: unset;
+          }
+          .gallery__main {
+            border-radius: 20px;
+            .swiper-wrapper {
+              .swiper-slide {
+                margin: auto;
+                width: 100% !important;
+                height: 475px;
+
+                cursor:              pointer;
+                background-color:    $black;
+                background-position: center;
+                background-repeat:   no-repeat;
+                img {
+                  opacity:       1;
+                  transition:    opacity $transition;
+                }
+                @include hover {
+                  background-image: url("/wp-content/themes/inya_theme/assets/images/loop.png");
+                  img {
+                    opacity: 0.4;
+                  }
+                }
+
+                @include tablet {
+                  height: 280px;
+                  border-radius: 10px;
+                }
+              }
+            }
+          }
+          .gallery__more {
+            margin-top: 20px;
+            margin-left: unset;
+            @include tablet {
+              display: none;
+            }
+            .swiper-wrapper {
+              margin: unset;
+              max-width: 580px;
+              width: 100%;
+              .swiper-slide {
+                cursor: pointer;
+                width: 180px !important;
+                height: 150px !important;
+                border-radius: 20px;
+                overflow: hidden;
+                border: 2px solid transparent;
+                transition: border $transition;
+                @include hover {
+                  border: 2px solid $mint;
+                }
+                &.swiper-slide-thumb-active {
+                  border: 2px solid $mint;
+                }
+              }
+            }
+          }
+          .swiper-pagination {
+            bottom: 20px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            @include tablet {
+              bottom: 15px;
+            }
+            .swiper-pagination-bullet {
+              margin-left: 20px;
+              margin-right: unset;
+              display: flex;
+              width: 15px;
+              height: 15px;
+              background-color: $white;
+              opacity: 0.6;
+              transition: opacity $transition;
+              @include tablet {
+                margin-left: 10px;
+                width: 10px;
+                height: 10px;
+              }
+              &:first-child {
+                margin-left: unset;
+              }
+              &.swiper-pagination-bullet-active {
+                background-color: $white;
+                opacity: 1;
+              }
+            }
+          }
+        }
+        .body__info {
+          display: flex;
+          flex-direction: column;
+          @include tablet {
+            margin-top: 30px;
+          }
+          h4 {
+            max-width: 460px;
+            width: 100%;
+            @include tablet {
+              max-width: unset;
+            }
+          }
+          .info__weight {
+            margin-top: 25px;
+            opacity: 0.6;
+            @include tablet {
+              margin-top: 10px;
+            }
+          }
+          .info__description {
+            margin-top: 5px;
+          }
+          .info-title {
+            margin-top: 25px;
+            padding-bottom: 5px;
+            color: $mint;
+            border-bottom: 1px solid $mint;
+            @include tablet {
+              margin-top: 15px;
+            }
+          }
+          .info-text {
+            margin-top: 20px;
+            @include tablet {
+              margin-top: 10px;
+            }
+          }
+          .info-items {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            @include tablet {
+              margin-top: 10px;
+            }
+            .items__item {
+              margin-top: 5px;
+              display: flex;
+              flex-direction: row;
+              align-items: flex-start;
+              &:before {
+                content: '';
+                margin-top: 10px;
+                margin-right: 10px;
+                display: flex;
+                width: 5px;
+                height: 5px;
+                background-color: $brown;
+                border-radius: 100%;
+                @include tablet {
+                  margin-top: 7px;
+                  margin-right: 7px;
+                }
+              }
+              &:first-child {
+                margin-top: unset;
+              }
+            }
+          }
+          .info__buy {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            @include tablet {
+              margin-top: 15px;
+              justify-content: space-between;
+            }
+            .buy__add {
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              width: 280px;
+              @include tablet {
+                width: 210px;
+              }
+              .add__cart {
+                width: 100%;
+                font-size: 18px;
+                &.outofstock {
+                  pointer-events: none;
+                }
+                &.added {
+                  @include tablet {
+                    display: none !important;
+                  }
+                }
+                @include tablet {
+                  border-radius: 10px;
+                }
+              }
+
+              .add__quantity {
+                margin-left: 10px;
+                padding: 15px;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                border: 2px solid $brown;
+                border-radius: 20px;
+                @include tablet {
+                  width: 100%;
+                  margin-left: unset;
+                  justify-content: space-between;
+                  border-radius: 10px;
+                }
+                .quantity__minus {
+                  display: flex;
+                  align-items: center;
+                  height: 25px;
+                  cursor: pointer;
+                  @include tablet {
+                    height: 20.8px;
+                  }
+                  @include hover {
+                    path {
+                      fill: $mint;
+                    }
+                  }
+                  path {
+                    transition: fill $transition;
+                  }
+                }
+                .quantity__plus {
+                  display: flex;
+                  align-items: center;
+                  height: 25px;
+                  cursor: pointer;
+                  @include tablet {
+                    height: 20.8px;
+                  }
+                  @include hover {
+                    path {
+                      fill: $mint;
+                    }
+                  }
+                  path {
+                    transition: fill $transition;
+                  }
+                }
+
+                .quantity__input {
+                  padding: 0 10px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  width: 40px;
+                  height: 25px;
+                  font-size: 18px;
+                  line-height: 110%;
+                  color: $brown;
+                  border: unset;
+                  text-align: center;
+                  @include tablet {
+                    padding: 0 20px;
+                    width: 60px;
+                    height: 20.8px;
+                    font-size: 18px;
+                  }
+                }
+              }
+            }
+            .buy__price {
+              margin-left: 25px;
+              @include tablet {
+                margin-top: 10px;
+                margin-left: unset;
+              }
+              &.sale-price {
+                position: relative;
+                .price__regular {
+                  position: absolute;
+                  left: 0;
+                  top: -15px;
+                  font-size: 16px;
+                  opacity: 0.6;
+                  @include tablet {
+                    top: -14px;
+                    font-size: 14px;
+                  }
+                  &:before {
+                    content: '';
+                    position: absolute;
+                    top: 10px;
+                    left: 0;
+                    height: 1px;
+                    width: 105%;
+                    background-color: $black;
+                  }
+                }
+                .price__sale {
+                  font-size: 32px;
+                  font-weight: 500;
+                  line-height: 120%;
+                  color: $red;
+                  font-family: $venrynSans, system-ui;
+                  @include tablet {
+                    font-size: 30px;
+                  }
+                }
+              }
+              &.regular-price {
+                .price__regular {
+                  font-size: 32px;
+                  font-weight: 500;
+                  line-height: 120%;
+                  font-family: $venrynSans, system-ui;
+                  @include tablet {
+                    font-size: 30px;
+                  }
+                  span {
+                    font-size: 18px;
+                    @include tablet {
+                      font-size: 14px;
+                    }
+                  }
+                }
+              }
+            }
+          }
+          .price__description {
+            margin-top: 5px;
+            p {
+              font-size: 16px;
+              @include tablet {
+                font-size: 14px;
+              }
+            }
+          }
+          .info__recipe {
+            margin-top: 50px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            background-color: $background;
+            border-radius: 20px;
+            @include tablet {
+              margin-top: 30px;
+              padding: 15px 10px;
+              border-radius: 10px;
+            }
+            h5 {
+              color: $mint;
+              @include tablet {
+                max-width: 250px;
+                width: 100%;
+              }
+            }
+            .recipe__items {
+              margin-top: 20px;
+              .items__item {
+                margin-top: 15px;
+                @include tablet {
+                  margin-top: 10px;
+                }
+                &:first-child {
+                  margin-top: unset;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .product-page__popular {
+    padding-bottom: 120px;
+    @include tablet {
+      padding-bottom: 60px;
+    }
+    .body__title {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      .title__navigation {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        @include tablet {
+          display: none;
+        }
+        .navigation-popular {
+          cursor: pointer;
+          width: 40px;
+          height: 40px;
+          opacity: 1;
+          transition: opacity $transition;
+          &.navigation__next {
+            margin-left: 25px;
+          }
+          &.swiper-button-disabled {
+            opacity: 0.5;
+            pointer-events: none;
+          }
+          svg {
+            width: 100%;
+            height: 100%;
+            circle {
+              fill: $white;
+              transition: fill $transition;
+            }
+            path {
+              stroke: $brown;
+              transition: stroke $transition;
+            }
+          }
+          @include hover {
+            svg {
+              circle {
+                fill: $brown;
+              }
+              path {
+                stroke: $white;
+              }
+            }
+          }
+        }
+      }
+    }
+    .body__products {
+      margin: -20px 0 -20px -20px;
+      padding: 60px 0 20px 20px;
+      @include tablet {
+        margin: -15px -15px -15px -15px;
+        padding: 40px 15px 15px 15px;
+      }
+    }
+  }
+}

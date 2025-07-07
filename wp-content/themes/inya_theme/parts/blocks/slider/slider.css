@@ -1,0 +1,17 @@
+.acf-block-preview .swiper-acf-block-default .swiper-wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.acf-block-preview .swiper-acf-block-default .swiper-slide a,
+.acf-block-preview .swiper-acf-block-default .swiper-slide img {
+    display: block;
+    pointer-events: none;
+}
+
+/*.swiper-acf-block-default .swiper-slide img {*/
+/*    display: block;*/
+/*    width: 100%;*/
+/*    height: auto;*/
+/*}*/

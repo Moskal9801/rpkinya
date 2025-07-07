@@ -1,0 +1,137 @@
+.archive-page {
+  .archive-page__news {
+    padding-bottom: 90px;
+    @include tablet {
+      padding-bottom: 30px;
+    }
+    .news__body {
+      display: flex;
+      flex-direction: column;
+      .body__items {
+        margin-top: 40px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 20px;
+        @include tablet {
+          margin-top: 25px;
+          grid-template-columns: 1fr;
+          gap: 10px;
+        }
+        .items__item {
+          width: 100%;
+          &:nth-child(5n-1) {
+            @include desktop {
+              display: grid;
+              grid-template-columns: 400px 1fr;
+              gap: 20px;
+              grid-column: span 2;
+              .item__image {
+                min-height: 410px;
+              }
+              .item__info {
+                margin-top: auto;
+                .info__title {
+                  max-height: 95px;
+                  height: 100%;
+                  -webkit-line-clamp: 3;
+                }
+                .info__description {
+                  height: 150px;
+                  -webkit-line-clamp: 6;
+                }
+                .info__date {
+                  left: 435px;
+                }
+              }
+            }
+          }
+        }
+      }
+      .body__more {
+        margin-top: 30px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+  }
+
+  .archive-page__recipes {
+    padding-bottom: 90px;
+    @include tablet {
+      padding-bottom: 30px;
+    }
+    .recipes__body {
+      display: flex;
+      flex-direction: column;
+      .body__items {
+        margin-top: 40px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        @include tablet {
+          margin-top: 25px;
+          grid-template-columns: 1fr;
+          gap: 10px;
+        }
+      }
+      .body__more {
+        margin-top: 30px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .body__background {
+        position: absolute;
+        right: -100px;
+        bottom: 35px;
+        @include tablet {
+          display: none;
+        }
+        svg {
+          display: block;
+          width: 165px;
+          height: 130px;
+        }
+      }
+    }
+  }
+
+  .archive-page__vacancy {
+    padding-bottom: 90px;
+    @include tablet {
+      padding-bottom: 30px;
+    }
+    .vacancy__body {
+      display: flex;
+      flex-direction: column;
+      .body__items {
+        margin-top: 40px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        @include tablet {
+          margin-top: 25px;
+          grid-template-columns: 1fr;
+          gap: 10px;
+        }
+      }
+      .body__more {
+        margin-top: 30px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .body__background {
+        position: absolute;
+        right: -50px;
+        bottom: -95px;
+        @include tablet {
+          display: none;
+        }
+        svg {
+          display: block;
+          width: 85px;
+          height: 240px;
+        }
+      }
+    }
+  }
+}
